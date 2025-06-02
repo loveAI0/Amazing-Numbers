@@ -1,6 +1,6 @@
 public class DuckNumber {
-   static boolean isDuck(int num){
-    String strNum = "" + num;
+   static boolean isDuck(long num){
+    String strNum = String.valueOf(num);
     /*
      * String strNum = "" + num;
      * String strNum = String.format("%d", num);

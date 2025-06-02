@@ -2,28 +2,53 @@ import java.util.Scanner;
 class Main{
     public static void main(String [] args){
         Scanner input = new Scanner(System.in);
+        
+        //Welcome 
 
-        //input
+        System.out.println("""
+                Welcome to Amazing Numbers!
 
-        int num = input.nextInt();
-        boolean result = EvenOdd.isNatural(num);
+                Supported requests:
+                - enter a natural number to know its properties;
+                - enter 0 to exit.""");
+        long flag = 1;
+        while(flag != 0){
+            //input
+            System.out.print("Enter a request: ");
+            String numStr = input.next();
+            long num = Long.parseLong(numStr);
+
+            if(num == 0){
+                input.close();
+                System.out.println("\n\nGoodBye!");
+                break;
+            } 
+            
+            
+            boolean result = EvenOdd.isNatural(num);
 
 
-        if (result){
-            boolean isEven = EvenOdd.isEvenOdd(num);
-            boolean isBuzz = BuzzNumber.isBuzz(num);
-            boolean isDuck = DuckNumber.isDuck(num);
-            String output = String.format("""
-                   Properties of %d
-                   even: %b
-                    odd: %b
-                   buzz: %b
-                   duck: %b
-                    """, num, isEven, !isEven, isBuzz, isDuck);
-            System.out.println(output);
-        }else System.out.println("This number is not natural!");
-                    
+            if (result){
+                boolean isEven = EvenOdd.isEvenOdd(num);
+                boolean isBuzz = BuzzNumber.isBuzz(num);
+                boolean isDuck = DuckNumber.isDuck(num);
+                boolean isPalindrom = PalindromicNumber.isPalindrom(num);
+                String output = String.format("""
+                    Properties of %,d
+                    even: %b
+                     odd: %b
+                    buzz: %b
+                    duck: %b
+             palindromic: %b
+                        """, num, isEven, !isEven, isBuzz, isDuck, isPalindrom);
+                System.out.println(output);
+            }
+            else{
+                System.out.println("The first parameter should be a natural number or zero.");
                 
+            } 
+                    
+        }       
         
         
 
