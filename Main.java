@@ -1,6 +1,8 @@
 import java.util.Scanner;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.Map;
 class Main{
     public static void main(String [] args){
         
@@ -93,7 +95,7 @@ class Main{
                 } 
                 
             }
-            else{
+            else if(arr1.length == 3){
                 // number times and properties
                 
                 ArrayList <String> properties = new ArrayList<>(Arrays.asList("BUZZ", "DUCK", "PALINDROMIC", "GAPFUL", "SPY", "EVEN", "ODD"));
@@ -239,7 +241,72 @@ class Main{
                     System.out.println("The first parameter should be a natural number or zero.");
                 
                 }
+
+
+
+            
             }
+            else if(arr1.length == 4){
+                // number times and properties
+                
+                ArrayList <String> properties = new ArrayList<>(Arrays.asList("BUZZ","SUNNY","SQUARE", "DUCK", "PALINDROMIC", "GAPFUL", "SPY", "EVEN", "ODD"));
+                
+                // exclusive properties of numbers
+                Map<String, String> exclusiveProperties = new HashMap<>();
+                exclusiveProperties.put("EVEN", "ODD");
+                exclusiveProperties.put("DUCK", "SPY");
+                exclusiveProperties.put("SUNNY", "SQUARE");
+
+
+                long[] arr = new long[2];
+                arr[0] = Long.parseLong(arr1[0]);
+                arr[1] = Long.parseLong(arr1[1]);
+                // arr1 is input string
+                if(exclusiveProperties.get(arr1[2]).equals(arr1[3]) || exclusiveProperties.get(arr1[3]).equals(arr1[2])){
+                    System.out.println(String.format("""
+                            The property [%s %s] is wrong.
+                            Available properties: [BUZZ, DUCK, PALINDROMIC, GAPFUL, SPY, EVEN, ODD]
+                            """, arr1[2], arr1[3]));
+                    break;
+                }
+                if(!properties.contains(arr1[2].toUpperCase()) && !properties.contains(arr1[3].toUpperCase())){
+                     System.out.println(String.format("""
+                           The request contains mutually exclusive properties: [%s, %s]
+                           There are no numbers with these properties.
+                            """, arr1[2], arr1[3]));
+                    break;
+                }
+                if(!properties.contains(arr1[2].toUpperCase())){
+                     System.out.println(String.format("""
+                           The request contains mutually exclusive properties: [%s]
+                           There are no numbers with these properties.
+                            """, arr1[2]));
+                    break;
+                }
+                if(!properties.contains(arr1[3].toUpperCase())){
+                    System.out.println(String.format("""
+                           The request contains mutually exclusive properties: [%s]
+                           There are no numbers with these properties.
+                            """, arr1[3]));
+                    break;
+                }
+                
+                boolean result = EvenOdd.isNatural(arr[0]);
+                
+
+                if (result){
+                    long j = arr[0];
+                    int times = (int) arr[1];
+                    String prop1 = arr1[2];
+                    StringBuilder sb = new StringBuilder();
+                    
+                       
+                        
+                }
+                else{
+                    System.out.println("The first parameter should be a natural number or zero.");
+                
+                }
         }       
     }
 }
