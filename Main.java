@@ -65,6 +65,7 @@ class Main{
                     System.out.println("The first parameter should be a natural number or zero.");
                 
                 } 
+                
             }
             else if(arr1.length == 1){
                 long[] arr = new long[1];
@@ -250,7 +251,7 @@ class Main{
                 // number times and properties
                 
                 ArrayList <String> properties = new ArrayList<>(Arrays.asList("BUZZ","SUNNY","SQUARE", "DUCK", "PALINDROMIC", "GAPFUL", "SPY", "EVEN", "ODD"));
-                
+              
                 // exclusive properties of numbers
                 Map<String, String> exclusiveProperties = new HashMap<>();
                 exclusiveProperties.put("EVEN", "ODD");
@@ -295,11 +296,28 @@ class Main{
                 
 
                 if (result){
-                    long j = arr[0];
+                    long num1 = arr[0];
                     int times = (int) arr[1];
+                    int count = 0;
                     String prop1 = arr1[2];
+                    String prop2 = arr1[3];
                     StringBuilder sb = new StringBuilder();
-                    
+                    ArrayList<Long> numParameter = new ArrayList<>();
+                    for(Long num : numParameter){
+                        numParameter.add(num1);
+                        count++;
+                        num++;
+                        if(count == times){
+                            break;
+                        }
+                    }
+                    System.out.println(numParameter);
+                    numParameter = SingleProperty.propertyNum(numParameter, prop1);
+                    System.out.println(numParameter);
+                    numParameter = SingleProperty.propertyNum(numParameter, prop2);
+
+
+                     
                        
                         
                 }
@@ -307,6 +325,7 @@ class Main{
                     System.out.println("The first parameter should be a natural number or zero.");
                 
                 }
+            }
         }       
     }
 }
