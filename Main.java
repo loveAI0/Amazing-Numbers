@@ -9,6 +9,7 @@ class Main{
         Scanner input = new Scanner(System.in);
         
         //Welcome 
+    
 
         System.out.println("""
                 Welcome to Amazing Numbers!
@@ -34,6 +35,7 @@ class Main{
                 input.close();
                 System.out.println("\n\nGoodBye!");
                 break;
+                
             }
             
             if(arr1.length == 2){
@@ -42,7 +44,7 @@ class Main{
                 arr[1] = Long.parseLong(arr1[1]);
                 boolean result = EvenOdd.isNatural(arr[0]);
 
-
+                
                 if (result){
                     for(long j = arr[0], k = 0 ; k < arr[1]; k++, j++){
                     
@@ -99,7 +101,7 @@ class Main{
             else if(arr1.length == 3){
                 // number times and properties
                 
-                ArrayList <String> properties = new ArrayList<>(Arrays.asList("BUZZ", "DUCK", "PALINDROMIC", "GAPFUL", "SPY", "EVEN", "ODD"));
+                ArrayList <String> properties = new ArrayList<>(Arrays.asList("BUZZ", "DUCK", "PALINDROMIC", "GAPFUL", "SPY", "SUNNY", "SQUARE","EVEN", "ODD"));
 
                 long[] arr = new long[2];
                 arr[0] = Long.parseLong(arr1[0]);
@@ -108,134 +110,26 @@ class Main{
                 if(!properties.contains(arr1[2].toUpperCase())){
                     System.out.println(String.format("""
                             The property [%s] is wrong.
-                            Available properties: [BUZZ, DUCK, PALINDROMIC, GAPFUL, SPY, EVEN, ODD]
+                            Available properties: [BUZZ, DUCK, PALINDROMIC, GAPFUL, SPY, SUNNY, SQUARE, EVEN, ODD]
                             """, arr1[2]));
-                    break;
+                    
                 }
                 
                 boolean result = EvenOdd.isNatural(arr[0]);
                 
 
                 if (result){
-                    long j = arr[0];
+                    long num1 = arr[0];
                     int times = (int) arr[1];
-                    int k = 0;
-                   
-                    while(k != times){
-                         StringBuilder sb = new StringBuilder();
-                       
-                        if (arr1[2].equals("EVEN") && EvenOdd.isEvenOdd(j)) {
-                            
-                            sb.append(String.format("%,d", j)).append(" is ");
-
-                            if (BuzzNumber.isBuzz(j)) sb.append("buzz ");
-                            if (DuckNumber.isDuck(j)) sb.append("duck ");
-                            if (PalindromicNumber.isPalindrom(j)) sb.append("palindromic ");
-                            if (GapfulNumber.isGapful(j)) sb.append("gapful ");
-                            if(SpyNumber.isSpy(j)) sb.append("spy ");
-                            if (EvenOdd.isEvenOdd(j)) sb.append("even ");
-                            else sb.append("odd ");
-                            System.out.println(sb.toString().trim()); // Removes extra spaces
+                    String prop1 = arr1[2];
+                    ArrayList<Long> numParameter = new ArrayList<>();
                     
-                            j += 2;
-                            k++;
-                        }
-                        else if (arr1[2].equals("ODD") && EvenOdd.isEvenOdd(j)) {
-                            
-                            sb.append(String.format("%,d", j)).append(" is ");
 
-                            if (BuzzNumber.isBuzz(j)) sb.append("buzz ");
-                            if (DuckNumber.isDuck(j)) sb.append("duck ");
-                            if (PalindromicNumber.isPalindrom(j)) sb.append("palindromic ");
-                            if (GapfulNumber.isGapful(j)) sb.append("gapful ");
-                            if(SpyNumber.isSpy(j)) sb.append("spy ");
-                            if (EvenOdd.isEvenOdd(j)) sb.append("even ");
-                            else sb.append("odd ");
-                            System.out.println(sb.toString().trim()); // Removes extra spaces
-                            j++;
-                            k++;
-                        }
-                        else if (arr1[2].equals("BUZZ")&& BuzzNumber.isBuzz(j)) {
-                           
-                            sb.append(String.format("%,d", j)).append(" is ");
-
-                            if (BuzzNumber.isBuzz(j)) sb.append("buzz ");
-                            if (DuckNumber.isDuck(j)) sb.append("duck ");
-                            if (PalindromicNumber.isPalindrom(j)) sb.append("palindromic ");
-                            if (GapfulNumber.isGapful(j)) sb.append("gapful ");
-                            if(SpyNumber.isSpy(j)) sb.append("spy ");
-                            if (EvenOdd.isEvenOdd(j)) sb.append("even ");
-                            else sb.append("odd ");
-                            System.out.println(sb.toString().trim()); // Removes extra spaces
-                            j++;
-                        }
-                        else if (arr1[2].equals("GAPFUL") && GapfulNumber.isGapful(j)) {
-                           
-                            sb.append(String.format("%,d", j)).append(" is ");
-
-                            if (BuzzNumber.isBuzz(j)) sb.append("buzz ");
-                            if (DuckNumber.isDuck(j)) sb.append("duck ");
-                            if (PalindromicNumber.isPalindrom(j)) sb.append("palindromic ");
-                            if (GapfulNumber.isGapful(j)) sb.append("gapful ");
-                            if(SpyNumber.isSpy(j)) sb.append("spy ");
-                            if (EvenOdd.isEvenOdd(j)) sb.append("even ");
-                            else sb.append("odd ");
-                            System.out.println(sb.toString().trim()); // Removes extra spaces
-                            j++;
-                        }
-                        else if (arr1[2].equals("PALINDROMIC") && PalindromicNumber.isPalindrom(j)) {
-                           
-                            sb.append(String.format("%,d", j)).append(" is ");
-
-                            if (BuzzNumber.isBuzz(j)) sb.append("buzz ");
-                            if (DuckNumber.isDuck(j)) sb.append("duck ");
-                            if (PalindromicNumber.isPalindrom(j)) sb.append("palindromic ");
-                            if (GapfulNumber.isGapful(j)) sb.append("gapful ");
-                            if(SpyNumber.isSpy(j)) sb.append("spy ");
-                            if (EvenOdd.isEvenOdd(j)) sb.append("even ");
-                            else sb.append("odd ");
-                            System.out.println(sb.toString().trim()); // Removes extra spaces
-                            j++;
-                            k++;
-                        }
-                        else if (arr1[2].equals("DUCK")&& DuckNumber.isDuck(j)) {
-                            
-                            sb.append(String.format("%,d", j)).append(" is ");
-
-                            if (BuzzNumber.isBuzz(j)) sb.append("buzz ");
-                            if (DuckNumber.isDuck(j)) sb.append("duck ");
-                            if (PalindromicNumber.isPalindrom(j)) sb.append("palindromic ");
-                            if (GapfulNumber.isGapful(j)) sb.append("gapful ");
-                            if(SpyNumber.isSpy(j)) sb.append("spy ");
-                            if (EvenOdd.isEvenOdd(j)) sb.append("even ");
-                            else sb.append("odd ");
-                            System.out.println(sb.toString().trim()); // Removes extra spaces
-                            j++;
-                            k++;
-                        }
-                        else if(arr1[2].equals("SPY") && SpyNumber.isSpy(j)) {
-                            
-                            sb.append(String.format("%,d", j)).append(" is ");
-
-                            if (BuzzNumber.isBuzz(j)) sb.append("buzz ");
-                            if (DuckNumber.isDuck(j)) sb.append("duck ");
-                            if (PalindromicNumber.isPalindrom(j)) sb.append("palindromic ");
-                            if (GapfulNumber.isGapful(j)) sb.append("gapful ");
-                            if(SpyNumber.isSpy(j)) sb.append("spy ");
-                            if (EvenOdd.isEvenOdd(j)) sb.append("even ");
-                            else sb.append("odd ");
-                            System.out.println(sb.toString().trim()); // Removes extra spaces
-                            j++;
-                            k++;
-                            
-                        }
-                        else{
-                            j++;
-                        }
+                       
+                    numParameter = SingleProperty.propertyNum(num1,times, prop1);
                         
-                        
-                    }
-                        
+                    
+                    Output.printArrayList(numParameter);
                 }
 
                 else{
@@ -257,75 +151,80 @@ class Main{
                 exclusiveProperties.put("EVEN", "ODD");
                 exclusiveProperties.put("DUCK", "SPY");
                 exclusiveProperties.put("SUNNY", "SQUARE");
+                exclusiveProperties.put("ODD", "EVEN");
+                exclusiveProperties.put("SPY", "DUCK");
+                exclusiveProperties.put("SQUARE", "SUNNY");
+                
 
 
                 long[] arr = new long[2];
                 arr[0] = Long.parseLong(arr1[0]);
                 arr[1] = Long.parseLong(arr1[1]);
                 // arr1 is input string
-                if(exclusiveProperties.get(arr1[2]).equals(arr1[3]) || exclusiveProperties.get(arr1[3]).equals(arr1[2])){
-                    System.out.println(String.format("""
-                            The property [%s %s] is wrong.
-                            Available properties: [BUZZ, DUCK, PALINDROMIC, GAPFUL, SPY, EVEN, ODD]
-                            """, arr1[2], arr1[3]));
-                    break;
-                }
+                
                 if(!properties.contains(arr1[2].toUpperCase()) && !properties.contains(arr1[3].toUpperCase())){
                      System.out.println(String.format("""
-                           The request contains mutually exclusive properties: [%s, %s]
-                           There are no numbers with these properties.
+                           The property [%s %s] is wrong.
+                            Available properties: [BUZZ, DUCK, PALINDROMIC, GAPFUL, SPY, SUNNY, SQUARE, EVEN, ODD]
                             """, arr1[2], arr1[3]));
-                    break;
+                   
                 }
-                if(!properties.contains(arr1[2].toUpperCase())){
+                else if(!properties.contains(arr1[2].toUpperCase())){
                      System.out.println(String.format("""
-                           The request contains mutually exclusive properties: [%s]
-                           There are no numbers with these properties.
+                           The property [%s] is wrong.
+                           Available properties: [BUZZ, DUCK, PALINDROMIC, GAPFUL, SPY, SUNNY, SQUARE, EVEN, ODD]
                             """, arr1[2]));
-                    break;
+                    
                 }
-                if(!properties.contains(arr1[3].toUpperCase())){
+                else if(!properties.contains(arr1[3].toUpperCase())){
                     System.out.println(String.format("""
-                           The request contains mutually exclusive properties: [%s]
-                           There are no numbers with these properties.
-                            """, arr1[3]));
-                    break;
+                           The property [%s] is wrong.
+                            Available properties: [BUZZ, DUCK, PALINDROMIC, GAPFUL, SPY, SUNNY, SQUARE, EVEN, ODD]
+                            """,arr1[3]));
+                    
+                }
+                else if(exclusiveProperties.get(arr1[2]).equals(arr1[3])){
+                    System.out.println(String.format("""
+                            The request contains mutually exclusive properties: [%s, %s]
+                            There are no numbers with these properties.
+                            """, arr1[2], arr1[3]));
+                        
+                   
                 }
                 
-                boolean result = EvenOdd.isNatural(arr[0]);
+                else {
+                    boolean result = EvenOdd.isNatural(arr[0]);
                 
 
-                if (result){
-                    long num1 = arr[0];
-                    int times = (int) arr[1];
-                    int count = 0;
-                    String prop1 = arr1[2];
-                    String prop2 = arr1[3];
-                    StringBuilder sb = new StringBuilder();
-                    ArrayList<Long> numParameter = new ArrayList<>();
-                    for(Long num : numParameter){
-                        numParameter.add(num1);
-                        count++;
-                        num++;
-                        if(count == times){
-                            break;
-                        }
-                    }
-                    System.out.println(numParameter);
-                    numParameter = SingleProperty.propertyNum(numParameter, prop1);
-                    System.out.println(numParameter);
-                    numParameter = SingleProperty.propertyNum(numParameter, prop2);
-
-
+                    if (result){
+                        long num1 = arr[0];
+                       
+                        int times = (int) arr[1];
+                        
                      
+                        String prop1 = arr1[2];
+                      
+                        String prop2 = arr1[3];
                        
                         
+                        ArrayList<Long> numParameter = new ArrayList<>();
+                    
+
+                       
+                        numParameter = SingleProperty.propertyNum(num1,times, prop1);
+                        
+                        numParameter = doubleProperty.propertyNum(numParameter, prop2);
+                        Output.printArrayList(numParameter);
+
+
+                        
+                        
+                            
+                    }
+                    else{ System.out.println("The first parameter should be a natural number or zero.");
+                    }
                 }
-                else{
-                    System.out.println("The first parameter should be a natural number or zero.");
-                
-                }
-            }
-        }       
+           }       
+        }
     }
 }

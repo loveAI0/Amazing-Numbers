@@ -1,11 +1,14 @@
 public class Sunny {
-    static boolean isSunny(long num){
-        double square = Math.sqrt(num) * Math.sqrt(num);
+    static boolean isSunny(long num) {
+        double squareRoot = Math.sqrt(num + 1);
         
-        if(square * square - 1 == num){
+        if (squareRoot == Math.floor(squareRoot)) { // Check if it's a perfect square
             return true;
         }
-        return false;
         
+       
+        return false;
     }
+
+   
 }
