@@ -42,7 +42,9 @@ class Main{
             
             if(arr1.length == 1){
                 long[] arr = new long[1];
+
                 arr[0] = Long.parseLong(arr1[0]);
+                
                 boolean result = EvenOdd.isNatural(arr[0]);
                 if(result){ 
                     boolean isEven = EvenOdd.isEvenOdd(arr[0]);
@@ -51,16 +53,20 @@ class Main{
                     boolean isPalindrom = PalindromicNumber.isPalindrom(arr[0]);
                     boolean isGapful = GapfulNumber.isGapful(arr[0]);
                     boolean isSpy = SpyNumber.isSpy(arr[0]);
+                    boolean isSunny = Sunny.isSunny(arr[0]);
+                    boolean isSquare = Square.isSquare(arr[0]);
                     String output = String.format("""
                             Properties of %,d
                                     buzz: %b
                                     duck: %b
                              palindromic: %b
                                   gapful: %b
+                                   sunny: %b
+                                  square: %b
                                      spy: %b
                                     even: %b
                                      odd: %b
-                                """, arr[0],isBuzz, isDuck, isPalindrom,isGapful,isSpy,isEven, !isEven);
+                                """, arr[0],isBuzz, isDuck, isPalindrom,isGapful,isSunny,isSquare,isSpy,isEven, !isEven);
                     System.out.println(output);
                 }
                 else{
@@ -72,13 +78,14 @@ class Main{
             else if(arr1.length == 2){
                 long[] arr = new long[2];
                 arr[0] = Long.parseLong(arr1[0]);
-                arr[1] = Long.parseLong(arr1[1]);
-                boolean result = EvenOdd.isNatural(arr[0]);
-
                 
-                if (result){
-                    for(long j = arr[0], k = 0 ; k < arr[1]; k++, j++){
-                    
+                arr[1] = Long.parseLong(arr1[1]);
+                boolean result1 = EvenOdd.isNatural(arr[0]);
+                boolean result2 = EvenOdd.isNatural(arr[1]);
+
+                if (result1 && result2) {
+                    for (long j = arr[0], k = 0; k < arr[1]; k++, j++) {
+
                         StringBuilder sb = new StringBuilder(j + " is ");
                         List<String> properties = new ArrayList<>();
 
@@ -97,10 +104,15 @@ class Main{
                 }
 
                 else{
-                    System.out.println("The first parameter should be a natural number or zero.");
-                    
-                } 
                 
+                    if(!result1){
+                        System.out.println("The first parameter should be a natural number or zero.");
+                    }
+                    else if(!result2){
+                        System.out.println("The second parameter should be a natural number.");
+                    }
+
+                }
             }
             else if(arr1.length == 3){
                 // number times and properties
@@ -119,10 +131,10 @@ class Main{
                     
                 }
                 
-                boolean result = EvenOdd.isNatural(arr[0]);
-                
+                boolean result1 = EvenOdd.isNatural(arr[0]);
+                 boolean result2 = EvenOdd.isNatural(arr[1]);
 
-                if (result){
+                if (result1 && result2) {
                     long num1 = arr[0];
                     int times = (int) arr[1];
                     String prop1 = arr1[2];
@@ -137,7 +149,12 @@ class Main{
                 }
 
                 else{
-                    System.out.println("The first parameter should be a natural number or zero.");
+                    if(!result1){
+                        System.out.println("The first parameter should be a natural number or zero.");
+                    }
+                    else if(!result2){
+                        System.out.println("The second parameter should be a natural number or zero.");
+                    }
                 
                 }
 
